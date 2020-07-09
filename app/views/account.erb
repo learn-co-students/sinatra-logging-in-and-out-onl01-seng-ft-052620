@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+    <% if is_logged in? %>
+    <p>Hello, <%= current_user.username %>.</p>
+    <p>Your current balance is <%= current_user.balance %>.</p>
+    <% else %>
+    <p>Please <a href='/'>log in.</a></p>
+    <% end %>
+    <a href="/logout">Log Out</a>
 
   </body>
 </html>
